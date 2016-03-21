@@ -1,0 +1,100 @@
+//output: tables-test.html, pretty: false
+doctype html
+html/#top(lang="en-AU")
+head
+ style(src="https://necolas.github.io/normalize.css/" href="normalise.css" title="A small modification of the 'normalize' CSS")#normalise
+  include ../normalise.min.css
+  | 
+  |/* table.less */
+  include table.css
+  //-style(src="tables.css" href="table.less" title="Tables.")#experiment
+ title Tables with Varying numbers of cells
+body/
+main/
+h1(align="center") Tables with varying amounts of cells.
+mixin cellcount
+ =cells
+ unless cells == 1
+  |  cells wide
+ else
+  |  cell wide
+
+mixin thead
+ thead
+  tr
+   - for (i = 0; i < cells; i++)
+    th
+     +cellcount
+
+mixin tbody
+ tbody
+  tr
+   - for (i = 0; i < cells; i++)
+    td
+     +cellcount
+
+mixin tfoot
+ tfoot
+  tr
+   - for (i = 0; i < cells; i++)
+    td
+     +cellcount
+
+mixin fulltable
+ center cells = 
+  =cells
+ table&attributes(attributes)
+  +thead
+  +tbody
+  +tfoot
+mixin cellcounter
+ - var cells = cells + 1
+//- mixin tables
+//-  - var cells = 1
+//-  - for (i = 0; i < cellamount; i++)
+//-   +fulltable
+//-   - var cells = cells + 1
+- var cells = 1
++fulltable#1-cell-wide
+- var cells = cells + 1
++fulltable#2-cells-wide
+- var cells = cells + 1
++fulltable#3-cells-wide
+- var cells = cells + 1
++fulltable#4-cells-wide
+- var cells = cells + 1
++fulltable#5-cells-wide
+- var cells = cells + 1
++fulltable#6-cells-wide
+- var cells = cells + 1
++fulltable#7-cells-wide
+- var cells = cells + 1
++fulltable#8-cells-wide
+- var cells = cells + 1
++fulltable#9-cells-wide
+- var cells = cells + 1
++fulltable#10-cells-wide
+- var cells = cells + 1
++fulltable#11-cells-wide
+- var cells = cells + 1
++fulltable#12-cells-wide
+- var cells = cells + 1
++fulltable#13-cells-wide
+- var cells = cells + 1
++fulltable#14-cells-wide
+- var cells = cells + 1
++fulltable#15-cells-wide
+- var cells = cells + 1
++fulltable#16-cells-wide
+- var cells = cells + 1
++fulltable#17-cells-wide
+- var cells = cells + 1
++fulltable#17-cells-wide
+- var cells = cells + 1
++fulltable#18-cells-wide
+- var cells = cells + 1
++fulltable#19-cells-wide
+
+//- - var cellamount = 4
+//- +tables
+</main><style><!--[hidden]{display:none}/*
